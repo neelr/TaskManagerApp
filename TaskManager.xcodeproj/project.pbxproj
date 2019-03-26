@@ -15,6 +15,7 @@
 		B318C4AE224302B2006E4232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B318C4AC224302B2006E4232 /* LaunchScreen.storyboard */; };
 		B318C4B9224302B2006E4232 /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318C4B8224302B2006E4232 /* TaskManagerTests.swift */; };
 		B318C4C4224302B2006E4232 /* TaskManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318C4C3224302B2006E4232 /* TaskManagerUITests.swift */; };
+		B31A72E32249ECFC0009A1FF /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A72E22249ECFC0009A1FF /* thirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B318C4BF224302B2006E4232 /* TaskManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B318C4C3224302B2006E4232 /* TaskManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITests.swift; sourceTree = "<group>"; };
 		B318C4C5224302B2006E4232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B31A72E22249ECFC0009A1FF /* thirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				B318C4AA224302B2006E4232 /* Assets.xcassets */,
 				B318C4AC224302B2006E4232 /* LaunchScreen.storyboard */,
 				B318C4AF224302B2006E4232 /* Info.plist */,
+				B31A72E22249ECFC0009A1FF /* thirdViewController.swift */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				B318C4A6224302B0006E4232 /* SecondViewController.swift in Sources */,
 				B318C4A2224302B0006E4232 /* AppDelegate.swift in Sources */,
+				B31A72E32249ECFC0009A1FF /* thirdViewController.swift in Sources */,
 				B318C4A4224302B0006E4232 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class SecondViewController: UIViewController {
     var tasks = UserDefaults.standard.stringArray(forKey: "tasks") ?? [String]()
     @IBOutlet weak var textinput: UITextField!

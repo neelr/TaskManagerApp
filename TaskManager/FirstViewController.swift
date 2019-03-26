@@ -7,9 +7,8 @@
 //
 
 import UIKit
-
+var poopoo = 0
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var TaskView: UITableView!
     var tasks = UserDefaults.standard.stringArray(forKey: "tasks") ?? [String]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,6 +25,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             UserDefaults.standard.set(tasks, forKey: "tasks")
             TaskView.reloadData()
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        poopoo = indexPath.row
+        performSegue(withIdentifier: "trigger", sender: self)
     }
     override func viewDidAppear(_ animated: Bool) {
         tasks = UserDefaults.standard.stringArray(forKey: "tasks") ?? [String]()

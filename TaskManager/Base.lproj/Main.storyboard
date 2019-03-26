@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tasks-->
+        <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="O3f-QU-d0z">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="O3f-QU-d0z">
                                         <rect key="frame" x="0.0" y="28" width="233" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O3f-QU-d0z" id="dth-Yy-Nxb">
@@ -50,23 +50,109 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Qh8-49-HMs" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="75" id="8QH-9F-aXO"/>
                             <constraint firstItem="Qh8-49-HMs" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="36" id="tYk-WQ-84K"/>
                             <constraint firstItem="Qh8-49-HMs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="wqp-Iw-KHT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pzG-qr-kUw" appends="YES" id="Xyx-SV-lB6"/>
+                        </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tasks" image="first" landscapeImage="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" badgeValue="Tasks" systemItem="favorites" id="acW-dT-cKf">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="TaskView" destination="lQ7-0K-uKg" id="qxx-46-QUv"/>
+                        <segue destination="oW5-Pr-uWv" kind="show" identifier="trigger" id="Psh-bl-9dW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="pzG-qr-kUw">
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="show" id="U5n-iT-PLK"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="750" y="-320.07042253521126"/>
+            <point key="canvasLocation" x="821" y="-594"/>
         </scene>
-        <!--Add Tasks-->
+        <!--Third View Controller-->
+        <scene sceneID="EqH-DC-OxB">
+            <objects>
+                <viewController id="oW5-Pr-uWv" customClass="thirdViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ma2-SW-nbd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhi-yQ-C4d">
+                                <rect key="frame" x="50" y="186" width="220" height="197"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="197" id="1MB-aP-APi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7D-wa-Wjk">
+                                <rect key="frame" x="95" y="436" width="130" height="57"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="VZu-M4-OFl"/>
+                                </constraints>
+                                <state key="normal" title="Return">
+                                    <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddTask:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="F11-or-Bej"/>
+                                    <segue destination="9pv-A4-QxB" kind="show" id="VEB-4T-Bbq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Task Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W5-De-Ndk">
+                                <rect key="frame" x="44" y="38" width="232" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="8WP-a4-fdO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Yhi-yQ-C4d" firstAttribute="leading" secondItem="32J-5I-KHk" secondAttribute="leading" constant="50" id="4Hh-RA-Dx9"/>
+                            <constraint firstItem="Yhi-yQ-C4d" firstAttribute="top" secondItem="9W5-De-Ndk" secondAttribute="bottom" constant="44" id="DN2-FS-i3u"/>
+                            <constraint firstItem="D7D-wa-Wjk" firstAttribute="centerX" secondItem="Ma2-SW-nbd" secondAttribute="centerX" id="LtC-tm-pAf"/>
+                            <constraint firstItem="9W5-De-Ndk" firstAttribute="top" secondItem="32J-5I-KHk" secondAttribute="top" constant="18" id="NE1-zY-gKI"/>
+                            <constraint firstItem="9W5-De-Ndk" firstAttribute="centerX" secondItem="Yhi-yQ-C4d" secondAttribute="centerX" id="NFT-vC-Oe5"/>
+                            <constraint firstItem="9W5-De-Ndk" firstAttribute="leading" secondItem="32J-5I-KHk" secondAttribute="leading" constant="44" id="W3u-Jk-s18"/>
+                            <constraint firstItem="32J-5I-KHk" firstAttribute="bottom" secondItem="D7D-wa-Wjk" secondAttribute="bottom" constant="75" id="c3d-uY-uMv"/>
+                            <constraint firstItem="D7D-wa-Wjk" firstAttribute="leading" secondItem="32J-5I-KHk" secondAttribute="leading" constant="95" id="dIE-hm-tgm"/>
+                            <constraint firstItem="Yhi-yQ-C4d" firstAttribute="centerX" secondItem="D7D-wa-Wjk" secondAttribute="centerX" id="f1B-WX-9Th"/>
+                            <constraint firstItem="Yhi-yQ-C4d" firstAttribute="centerY" secondItem="Ma2-SW-nbd" secondAttribute="centerY" id="oG7-7q-nsp"/>
+                            <constraint firstItem="D7D-wa-Wjk" firstAttribute="top" secondItem="Yhi-yQ-C4d" secondAttribute="bottom" constant="53" id="okb-J8-CY5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="32J-5I-KHk"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IjY-hn-Lxl" appends="YES" id="CDp-8v-2DM"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="labelthing" destination="Yhi-yQ-C4d" id="muU-Cm-5Gw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9R-pD-wzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="IjY-hn-Lxl">
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="show" id="M6o-UJ-Gsg"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1758.75" y="-405.63380281690144"/>
+        </scene>
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,6 +190,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="PrO-fd-bHb" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="73" id="0ul-v8-FHZ"/>
                             <constraint firstItem="PrO-fd-bHb" firstAttribute="centerX" secondItem="9JA-bQ-GhT" secondAttribute="centerX" id="1Px-al-W3i"/>
@@ -116,24 +203,33 @@
                             <constraint firstItem="9JA-bQ-GhT" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="95" id="bdc-Dx-KCv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="I2c-Rr-otp" appends="YES" id="4ls-PX-vNu"/>
+                        </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add Tasks" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" badgeValue="Add tasks" systemItem="bookmarks" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="textinput" destination="PrO-fd-bHb" id="VSr-V3-4Hu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="I2c-Rr-otp">
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="show" id="orl-oh-QD8"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="750" y="359.15492957746477"/>
+            <point key="canvasLocation" x="1044" y="579"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -145,8 +241,8 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="U5n-iT-PLK"/>
+        <segue reference="VEB-4T-Bbq"/>
+    </inferredMetricsTieBreakers>
 </document>
